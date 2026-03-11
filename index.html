@@ -3,91 +3,159 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>青木隆之助 - 自己紹介</title>
+  <title>Ryunosuke Aoki</title>
   <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --line: #dddddd;
+      --max: 720px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #e0f7ff;
-      color: #333;
       margin: 0;
-      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+        "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      line-height: 1.8;
     }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
     header {
-      background-color: #b2e4f9;
-      color: #003f5c;
-      text-align: center;
-      padding: 2rem 1rem;
+      margin-bottom: 48px;
     }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin: 0 0 10px;
     }
-    img.profile-img {
-      max-width: 300px;
-      display: block;
-      margin: 1rem auto;
-      border: 5px solid #b2e4f9;
-      border-radius: 10px;
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin: 0;
     }
-    h2 {
-      border-bottom: 2px solid #00aaff;
-      padding-bottom: 0.5rem;
-    }
-    a {
-      color: #0077aa;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    audio {
+
+    .photo {
       width: 100%;
-      margin-top: 1rem;
+      max-width: 280px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      margin: 0 0 32px;
+      border: 1px solid var(--line);
     }
+
+    section {
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 14px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+    }
+
+    a:hover {
+      border-bottom-color: var(--text);
+    }
+
     footer {
-      text-align: center;
-      padding: 1rem;
+      padding-top: 32px;
+      color: var(--muted);
       font-size: 0.9rem;
-      background-color: #d0f0ff;
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 32px 18px 56px;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .photo {
+        max-width: 180px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>青木隆之助</h1>
-    <p>自己紹介：うんちが好き</p>
-  </header>
+  <main class="wrap">
+    <header>
+      <h1>Ryunosuke Aoki</h1>
+      <p class="subtitle">Sound / Field Recording / Research / Design</p>
+    </header>
 
-  <main>
-    <img src="3000.jpg" alt="プロフィール画像" class="profile-img" />
+    <img class="photo" src="profile.jpg" alt="Ryunosuke Aokiの写真" />
 
     <section>
-      <h2>リンク</h2>
-      <p><a href="https://aokiryunosuke.github.io/fieldrecordingnotes/" target="_blank">Field Recording Notes</a></p>
+      <h2>About</h2>
+      <p>
+        青木隆之助。フィールドレコーディング、サウンドスケープ研究、デザイン、制作を横断しながら活動しています。
+        音を通して、都市や風景、人の気配を記録し、考え、表現しています。
+      </p>
     </section>
 
     <section>
-      <h2>エッセイ一覧</h2>
+      <h2>Works</h2>
       <ul>
-        <li><a href="https://note.com/aoki_ryunosuke/n/n0be34e7af71c" target="_blank">新しいパンツ</a></li>
-        <li><a href="https://note.com/aoki_ryunosuke/n/n85699b03f94f" target="_blank">サウンドスケープサイコロジーメモ5</a></li>
-        <li><a href="https://note.com/aoki_ryunosuke/n/na79c6841ff2e" target="_blank">地面を録音する</a></li>
+        <li><a href="#">Field Recordings</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Writing</a></li>
       </ul>
     </section>
 
     <section>
-      <h2>音源プレーヤー</h2>
-      <p>最近の録音作品をこちらでお聴きいただけます：</p>
-      <audio controls>
-        <source src="audio/sample.mp3" type="audio/mpeg" />
-        お使いのブラウザは audio タグをサポートしていません。
-      </audio>
+      <h2>Links</h2>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </section>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 青木隆之助</p>
-  </footer>
+    <footer>
+      <p>© Ryunosuke Aoki</p>
+    </footer>
+  </main>
 </body>
 </html>
