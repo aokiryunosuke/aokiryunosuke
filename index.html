@@ -6,14 +6,16 @@
   <title>Ryunosuke Aoki</title>
   <style>
     :root {
-      --bg: #ffffff;
+      --bg: #f8fbfc;
       --text: #111111;
-      --muted: #777777;
-      --line: #e3e3e3;
+      --muted: #6e7579;
+      --line: rgba(70, 95, 110, 0.18);
       --max: 580px;
-      --river-1: rgba(120, 150, 170, 0.06);
-      --river-2: rgba(160, 185, 200, 0.05);
-      --river-3: rgba(210, 220, 226, 0.06);
+      --river-1: rgba(92, 145, 175, 0.15);
+      --river-2: rgba(135, 184, 210, 0.12);
+      --river-3: rgba(188, 220, 235, 0.16);
+      --river-4: rgba(120, 165, 190, 0.10);
+      --mist: rgba(255, 255, 255, 0.10);
     }
 
     * {
@@ -26,7 +28,9 @@
 
     body {
       margin: 0;
-      background: var(--bg);
+      background:
+        linear-gradient(180deg, rgba(248, 251, 252, 0.96), rgba(241, 248, 250, 0.96)),
+        linear-gradient(135deg, rgba(220, 237, 244, 0.55), rgba(247, 250, 251, 0.75));
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
         "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
@@ -35,33 +39,40 @@
       text-rendering: optimizeLegibility;
       position: relative;
       overflow-x: hidden;
+      min-height: 100vh;
     }
 
     body::before,
     body::after {
       content: "";
       position: fixed;
-      inset: -8% -12%;
+      inset: -18% -18%;
       pointer-events: none;
       z-index: 0;
+      will-change: transform, background-position;
     }
 
     body::before {
       background:
-        radial-gradient(130% 42% at 12% 22%, transparent 58%, var(--river-1) 62%, transparent 66%),
-        radial-gradient(125% 38% at 78% 40%, transparent 58%, var(--river-2) 62%, transparent 66%),
-        radial-gradient(140% 40% at 34% 72%, transparent 58%, var(--river-3) 62%, transparent 66%);
-      animation: riverFlowA 24s linear infinite;
+        radial-gradient(110% 26% at 10% 16%, transparent 60%, var(--river-1) 64%, transparent 69%),
+        radial-gradient(120% 24% at 82% 28%, transparent 60%, var(--river-2) 64%, transparent 69%),
+        radial-gradient(135% 25% at 24% 48%, transparent 61%, var(--river-3) 65%, transparent 70%),
+        radial-gradient(125% 23% at 78% 67%, transparent 61%, var(--river-4) 65%, transparent 70%),
+        radial-gradient(145% 24% at 18% 86%, transparent 60%, var(--river-2) 64%, transparent 69%);
+      animation: riverFlowA 12s ease-in-out infinite alternate;
       opacity: 1;
     }
 
     body::after {
       background:
-        radial-gradient(120% 34% at 84% 18%, transparent 60%, var(--river-2) 64%, transparent 68%),
-        radial-gradient(120% 34% at 22% 54%, transparent 60%, var(--river-1) 64%, transparent 68%),
-        radial-gradient(135% 36% at 68% 84%, transparent 60%, var(--river-3) 64%, transparent 68%);
-      animation: riverFlowB 30s linear infinite;
-      opacity: 0.9;
+        radial-gradient(118% 20% at 74% 14%, transparent 62%, var(--mist) 66%, transparent 71%),
+        radial-gradient(122% 22% at 16% 34%, transparent 61%, var(--river-2) 65%, transparent 70%),
+        radial-gradient(130% 21% at 86% 52%, transparent 62%, var(--river-1) 66%, transparent 71%),
+        radial-gradient(120% 20% at 28% 72%, transparent 62%, var(--river-3) 66%, transparent 71%),
+        radial-gradient(150% 22% at 70% 90%, transparent 61%, var(--mist) 65%, transparent 70%);
+      animation: riverFlowB 9s ease-in-out infinite alternate;
+      opacity: 0.95;
+      mix-blend-mode: normal;
     }
 
     .wrap {
@@ -70,9 +81,7 @@
       padding: 42px 18px 60px;
       position: relative;
       z-index: 1;
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(1.5px);
-      -webkit-backdrop-filter: blur(1.5px);
+      background: transparent;
     }
 
     header {
@@ -101,6 +110,7 @@
       display: block;
       margin: 0 0 22px;
       border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
     }
 
     section {
@@ -120,6 +130,7 @@
     p {
       margin: 0;
       font-size: 0.9rem;
+      text-shadow: 0 0 1px rgba(255,255,255,0.18);
     }
 
     ul {
@@ -141,18 +152,21 @@
     .button-link {
       display: inline-block;
       padding: 8px 14px;
-      border: 1px solid var(--text);
+      border: 1px solid rgba(17, 17, 17, 0.72);
       color: var(--text);
       text-decoration: none;
       font-size: 0.88rem;
       line-height: 1.3;
-      transition: background-color 0.2s ease, color 0.2s ease;
-      background: rgba(255, 255, 255, 0.72);
+      transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      background: rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
     }
 
     .button-link:hover {
-      background: var(--text);
+      background: rgba(17, 17, 17, 0.88);
       color: var(--bg);
+      transform: translateY(-1px);
     }
 
     footer {
@@ -163,32 +177,46 @@
 
     @keyframes riverFlowA {
       0% {
-        transform: translate3d(-2%, 0, 0) scale(1.02);
+        transform: translate3d(-4%, -1%, 0) scale(1.02) rotate(-1.2deg);
+        filter: blur(0px);
+      }
+      25% {
+        transform: translate3d(2%, 2%, 0) scale(1.06) rotate(0.4deg);
       }
       50% {
-        transform: translate3d(2%, 1.2%, 0) scale(1.05);
+        transform: translate3d(5%, -2%, 0) scale(1.08) rotate(1.2deg);
+        filter: blur(1px);
+      }
+      75% {
+        transform: translate3d(-1%, 3%, 0) scale(1.05) rotate(-0.5deg);
       }
       100% {
-        transform: translate3d(-2%, 0, 0) scale(1.02);
+        transform: translate3d(-5%, -1%, 0) scale(1.03) rotate(-1.4deg);
+        filter: blur(0px);
       }
     }
 
     @keyframes riverFlowB {
       0% {
-        transform: translate3d(2%, 0, 0) scale(1.03);
+        transform: translate3d(4%, 0, 0) scale(1.03) rotate(1.1deg);
       }
-      50% {
-        transform: translate3d(-2%, -1%, 0) scale(1.06);
+      20% {
+        transform: translate3d(-2%, -2%, 0) scale(1.07) rotate(-0.2deg);
+      }
+      45% {
+        transform: translate3d(-5%, 2%, 0) scale(1.09) rotate(-1deg);
+      }
+      70% {
+        transform: translate3d(2%, -3%, 0) scale(1.05) rotate(0.6deg);
       }
       100% {
-        transform: translate3d(2%, 0, 0) scale(1.03);
+        transform: translate3d(5%, 1%, 0) scale(1.04) rotate(1.3deg);
       }
     }
 
     @media (max-width: 640px) {
       .wrap {
         padding: 28px 14px 44px;
-        background: rgba(255, 255, 255, 0.84);
       }
 
       h1 {
@@ -206,6 +234,17 @@
       p,
       .button-link {
         font-size: 0.84rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body::before,
+      body::after {
+        animation: none;
+      }
+
+      .button-link {
+        transition: none;
       }
     }
   </style>
