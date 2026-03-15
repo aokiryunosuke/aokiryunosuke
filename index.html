@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>青木隆之助｜AOKI Ryunosuke</title>
+  <title>Ryunosuke Aoki</title>
   <style>
     :root {
       --bg: #ffffff;
@@ -11,10 +11,17 @@
       --muted: #777777;
       --line: #e3e3e3;
       --max: 580px;
+      --river-1: rgba(120, 150, 170, 0.06);
+      --river-2: rgba(160, 185, 200, 0.05);
+      --river-3: rgba(210, 220, 226, 0.06);
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
     }
 
     body {
@@ -26,12 +33,46 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -8% -12%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      background:
+        radial-gradient(130% 42% at 12% 22%, transparent 58%, var(--river-1) 62%, transparent 66%),
+        radial-gradient(125% 38% at 78% 40%, transparent 58%, var(--river-2) 62%, transparent 66%),
+        radial-gradient(140% 40% at 34% 72%, transparent 58%, var(--river-3) 62%, transparent 66%);
+      animation: riverFlowA 24s linear infinite;
+      opacity: 1;
+    }
+
+    body::after {
+      background:
+        radial-gradient(120% 34% at 84% 18%, transparent 60%, var(--river-2) 64%, transparent 68%),
+        radial-gradient(120% 34% at 22% 54%, transparent 60%, var(--river-1) 64%, transparent 68%),
+        radial-gradient(135% 36% at 68% 84%, transparent 60%, var(--river-3) 64%, transparent 68%);
+      animation: riverFlowB 30s linear infinite;
+      opacity: 0.9;
     }
 
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
       padding: 42px 18px 60px;
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(1.5px);
+      -webkit-backdrop-filter: blur(1.5px);
     }
 
     header {
@@ -87,23 +128,31 @@
       margin: 0;
     }
 
-    li {
-      font-size: 0.9rem;
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    li + li {
-      margin-top: 7px;
+    .link-list li {
+      margin: 0;
     }
 
-    a {
+    .button-link {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid var(--text);
       color: var(--text);
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease;
+      font-size: 0.88rem;
+      line-height: 1.3;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      background: rgba(255, 255, 255, 0.72);
     }
 
-    a:hover {
-      border-bottom-color: var(--line);
+    .button-link:hover {
+      background: var(--text);
+      color: var(--bg);
     }
 
     footer {
@@ -112,9 +161,34 @@
       font-size: 0.78rem;
     }
 
+    @keyframes riverFlowA {
+      0% {
+        transform: translate3d(-2%, 0, 0) scale(1.02);
+      }
+      50% {
+        transform: translate3d(2%, 1.2%, 0) scale(1.05);
+      }
+      100% {
+        transform: translate3d(-2%, 0, 0) scale(1.02);
+      }
+    }
+
+    @keyframes riverFlowB {
+      0% {
+        transform: translate3d(2%, 0, 0) scale(1.03);
+      }
+      50% {
+        transform: translate3d(-2%, -1%, 0) scale(1.06);
+      }
+      100% {
+        transform: translate3d(2%, 0, 0) scale(1.03);
+      }
+    }
+
     @media (max-width: 640px) {
       .wrap {
         padding: 28px 14px 44px;
+        background: rgba(255, 255, 255, 0.84);
       }
 
       h1 {
@@ -130,8 +204,8 @@
       }
 
       p,
-      li {
-        font-size: 0.88rem;
+      .button-link {
+        font-size: 0.84rem;
       }
     }
   </style>
@@ -139,40 +213,40 @@
 <body>
   <main class="wrap">
     <header>
-      <h1>青木隆之助｜AOKI Ryunosuke</h1>
-      <p class="subtitle">いろ・啼鳥｜聴的環境｜Sound Pieces</p>
+      <h1>Ryunosuke Aoki</h1>
+      <p class="subtitle">Sound / Field Recording / Research / Design</p>
     </header>
 
-    <img class="photo" src="profile.jpg" alt="青木隆之助｜AOKI Ryunosuke" />
+    <img class="photo" src="profile.jpg" alt="Ryunosuke Aokiの写真" />
 
     <section>
-      <h2>紹介｜Profile</h2>
+      <h2>About</h2>
       <p>
-        平成十五年十月九日、神奈川県川崎市川崎区生まれ。青山学院大学在学中。
-        身長162cm、視力0.1程度。
+        青木隆之助。フィールドレコーディング、サウンドスケープ研究、デザイン、制作を横断しながら活動しています。
+        音を通して、都市や風景、人の気配を記録し、考え、表現しています。
       </p>
     </section>
 
     <section>
-      <h2>作品｜Works</h2>
+      <h2>Works</h2>
       <ul>
-        <li><a href="https://aokiryunosuke.github.io/fieldrecordingnotes/">Field Recordings</a></li>
+        <li><a href="#">Field Recordings</a></li>
         <li><a href="#">Projects</a></li>
         <li><a href="#">Writing</a></li>
       </ul>
     </section>
 
     <section>
-      <h2>SNSアカウント｜Accounts</h2>
+      <h2>Links</h2>
       <ul>
-        <li><a href="https://www.instagram.com/aoki_ryunosuke/">Instagram</a></li>
+        <li><a href="#">Instagram</a></li>
         <li><a href="#">GitHub</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </section>
 
     <footer>
-      <p>© AOKI Ryunosuke</p>
+      <p>© Ryunosuke Aoki</p>
     </footer>
   </main>
 </body>
