@@ -3,157 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ryunosuke Aoki</title>
+  <title>青木隆之助｜AOKI Ryunosuke</title>
   <style>
     :root {
       --bg: #f8fbfc;
       --text: #111111;
-      --muted: #6e7579;
-      --line: rgba(70, 95, 110, 0.18);
-      --max: 900px;
-      --river-1: rgba(90, 205, 245, 0.24);
-      --river-2: rgba(235, 120, 190, 0.22);
-      --river-3: rgba(245, 210, 60, 0.23);
-      --river-4: rgba(120, 120, 128, 0.20);
-      --river-5: rgba(70, 170, 95, 0.22);
-      --river-6: rgba(150, 90, 220, 0.22);
-      --mist: rgba(255, 255, 255, 0.07);
+      --muted: #666666;
+      --line: rgba(80, 95, 110, 0.22);
+      --max: 640px;
+      --river-1: rgba(90, 205, 245, 0.28);
+      --river-2: rgba(235, 120, 190, 0.24);
+      --river-3: rgba(245, 210, 60, 0.26);
+      --river-4: rgba(120, 120, 128, 0.22);
+      --river-5: rgba(70, 170, 95, 0.24);
+      --river-6: rgba(150, 90, 220, 0.24);
+      --mist: rgba(255, 255, 255, 0.08);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
+    html, body {
       min-height: 100%;
     }
 
     body {
       margin: 0;
-      background:
-        linear-gradient(180deg, rgba(248, 251, 252, 0.94), rgba(241, 248, 250, 0.94)),
-        linear-gradient(135deg, rgba(225, 236, 242, 0.52), rgba(247, 250, 251, 0.72));
       color: var(--text);
-      font-family: "YuMincho", "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", "Times New Roman", serif;
+      font-family: "YuMincho", "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", serif;
       font-weight: 700;
-      line-height: 1.9;
+      line-height: 1.95;
+      background:
+        linear-gradient(180deg, rgba(248, 251, 252, 0.95), rgba(241, 248, 250, 0.95)),
+        linear-gradient(135deg, rgba(225, 236, 242, 0.48), rgba(247, 250, 251, 0.72));
+      position: relative;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
-      position: relative;
-      overflow-x: auto;
-      overflow-y: hidden;
-      min-height: 100vh;
     }
 
     body::before,
     body::after {
       content: "";
       position: fixed;
-      inset: -18% -18%;
+      inset: -12% -10%;
       pointer-events: none;
       z-index: 0;
-      will-change: transform, background-position, filter;
     }
 
     body::before {
       background:
-        radial-gradient(110% 26% at 10% 16%, transparent 60%, var(--river-1) 64%, transparent 69%),
-        radial-gradient(120% 24% at 82% 28%, transparent 60%, var(--river-2) 64%, transparent 69%),
-        radial-gradient(135% 25% at 24% 48%, transparent 61%, var(--river-3) 65%, transparent 70%),
-        radial-gradient(125% 23% at 78% 67%, transparent 61%, var(--river-4) 65%, transparent 70%),
-        radial-gradient(145% 24% at 18% 86%, transparent 60%, var(--river-5) 64%, transparent 69%),
-        radial-gradient(118% 22% at 72% 88%, transparent 61%, var(--river-6) 65%, transparent 70%);
-      animation: riverFlowA 12s ease-in-out infinite alternate;
-      opacity: 1;
+        radial-gradient(120% 20% at 8% 10%, transparent 61%, var(--river-2) 64%, transparent 68%),
+        radial-gradient(140% 18% at 80% 18%, transparent 61%, var(--river-1) 64%, transparent 68%),
+        radial-gradient(135% 18% at 15% 30%, transparent 61%, var(--river-5) 64%, transparent 68%),
+        radial-gradient(150% 18% at 72% 42%, transparent 61%, var(--river-3) 64%, transparent 68%),
+        radial-gradient(145% 18% at 14% 56%, transparent 61%, var(--river-4) 64%, transparent 68%),
+        radial-gradient(140% 18% at 78% 68%, transparent 61%, var(--river-6) 64%, transparent 68%),
+        radial-gradient(145% 18% at 10% 84%, transparent 61%, var(--river-3) 64%, transparent 68%);
+      animation: riverA 13s ease-in-out infinite alternate;
+      filter: blur(1.2px);
     }
 
     body::after {
       background:
-        radial-gradient(118% 20% at 74% 14%, transparent 62%, var(--mist) 66%, transparent 71%),
-        radial-gradient(122% 22% at 16% 34%, transparent 61%, var(--river-2) 65%, transparent 70%),
-        radial-gradient(130% 21% at 86% 52%, transparent 62%, var(--river-1) 66%, transparent 71%),
-        radial-gradient(120% 20% at 28% 72%, transparent 62%, var(--river-3) 66%, transparent 71%),
-        radial-gradient(136% 22% at 62% 44%, transparent 61%, var(--river-5) 65%, transparent 70%),
-        radial-gradient(150% 22% at 70% 90%, transparent 61%, var(--river-6) 65%, transparent 70%);
-      animation: riverFlowB 9s ease-in-out infinite alternate;
+        radial-gradient(130% 16% at 88% 8%, transparent 62%, var(--mist) 65%, transparent 69%),
+        radial-gradient(135% 16% at 10% 22%, transparent 62%, var(--river-1) 65%, transparent 69%),
+        radial-gradient(145% 16% at 86% 34%, transparent 62%, var(--river-2) 65%, transparent 69%),
+        radial-gradient(150% 16% at 12% 50%, transparent 62%, var(--river-5) 65%, transparent 69%),
+        radial-gradient(150% 16% at 86% 64%, transparent 62%, var(--river-4) 65%, transparent 69%),
+        radial-gradient(145% 16% at 18% 78%, transparent 62%, var(--river-6) 65%, transparent 69%);
+      animation: riverB 10s ease-in-out infinite alternate;
+      filter: blur(1px);
       opacity: 0.95;
-      mix-blend-mode: normal;
     }
 
     .wrap {
-      width: max-content;
-      min-height: 100vh;
-      margin: 0 auto;
-      padding: 42px 56px;
       position: relative;
       z-index: 1;
-      background: transparent;
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      display: flex;
-      flex-direction: row;
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    header,
-    section,
-    footer {
-      border-top: none;
-      border-right: 1px solid var(--line);
-      padding: 0 18px;
-      min-height: 78vh;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 22px 84px;
     }
 
     header {
-      margin-bottom: 0;
-      padding-right: 0;
+      margin-bottom: 42px;
     }
 
     h1 {
-      font-size: 1.7rem;
+      margin: 0 0 8px;
+      font-size: 1.95rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      line-height: 1.7;
-      margin: 0 0 0 12px;
+      letter-spacing: 0.08em;
+      line-height: 1.45;
     }
 
     .subtitle {
-      color: var(--muted);
-      font-size: 0.82rem;
-      letter-spacing: 0.16em;
       margin: 0;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
     }
 
     .photo {
-      width: 190px;
-      height: 190px;
-      object-fit: cover;
       display: block;
-      margin: 0;
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      margin: 0 0 28px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.04);
     }
 
     section {
-      padding-top: 0;
+      padding: 20px 0 22px;
+      border-top: 1px solid var(--line);
     }
 
     h2 {
+      margin: 0 0 12px;
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin: 0 0 0 12px;
       color: var(--muted);
     }
 
     p {
       margin: 0;
       font-size: 0.98rem;
-      line-height: 2.1;
-      text-shadow: 0 0 1px rgba(255,255,255,0.10);
-      font-weight: 700;
+      text-shadow: 0 0 1px rgba(255,255,255,0.08);
     }
 
     ul {
@@ -164,107 +144,76 @@
 
     .link-list {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 12px;
-    }
-
-    .link-list li {
-      margin: 0;
     }
 
     .button-link {
       display: inline-block;
-      padding: 10px 8px;
-      border: 1px solid rgba(17, 17, 17, 0.72);
+      padding: 9px 15px;
+      border: 1px solid rgba(17,17,17,0.8);
       color: var(--text);
       text-decoration: none;
+      background: rgba(255,255,255,0.06);
       font-size: 0.84rem;
-      line-height: 1.5;
-      letter-spacing: 0.08em;
       font-weight: 700;
-      transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
-      background: rgba(255, 255, 255, 0.05);
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
 
     .button-link:hover {
-      background: rgba(17, 17, 17, 0.88);
-      color: var(--bg);
-      transform: translateX(-1px);
+      background: rgba(17,17,17,0.9);
+      color: #fff;
+      transform: translateY(-1px);
     }
 
     footer {
-      padding-top: 0;
+      padding-top: 28px;
       color: var(--muted);
       font-size: 0.76rem;
       letter-spacing: 0.08em;
-      font-weight: 700;
     }
 
-    @keyframes riverFlowA {
+    @keyframes riverA {
       0% {
-        transform: translate3d(-4%, -1%, 0) scale(1.02) rotate(-1.2deg);
-        filter: blur(0.3px);
-      }
-      25% {
-        transform: translate3d(2%, 2%, 0) scale(1.06) rotate(0.4deg);
+        transform: translate3d(-2%, 0%, 0) scale(1.02) rotate(-0.6deg);
       }
       50% {
-        transform: translate3d(5%, -2%, 0) scale(1.08) rotate(1.2deg);
-        filter: blur(0.5px);
-      }
-      75% {
-        transform: translate3d(-1%, 3%, 0) scale(1.05) rotate(-0.5deg);
+        transform: translate3d(2%, 1.5%, 0) scale(1.05) rotate(0.4deg);
       }
       100% {
-        transform: translate3d(-5%, -1%, 0) scale(1.03) rotate(-1.4deg);
-        filter: blur(0.3px);
+        transform: translate3d(-3%, -1%, 0) scale(1.03) rotate(-0.8deg);
       }
     }
 
-    @keyframes riverFlowB {
+    @keyframes riverB {
       0% {
-        transform: translate3d(4%, 0, 0) scale(1.03) rotate(1.1deg);
+        transform: translate3d(2%, -1%, 0) scale(1.02) rotate(0.5deg);
       }
-      20% {
-        transform: translate3d(-2%, -2%, 0) scale(1.07) rotate(-0.2deg);
-      }
-      45% {
-        transform: translate3d(-5%, 2%, 0) scale(1.09) rotate(-1deg);
-      }
-      70% {
-        transform: translate3d(2%, -3%, 0) scale(1.05) rotate(0.6deg);
+      50% {
+        transform: translate3d(-2%, 1%, 0) scale(1.04) rotate(-0.4deg);
       }
       100% {
-        transform: translate3d(5%, 1%, 0) scale(1.04) rotate(1.3deg);
+        transform: translate3d(3%, 0%, 0) scale(1.03) rotate(0.7deg);
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 640px) {
       .wrap {
-        padding: 24px 28px;
-        gap: 18px;
-      }
-
-      header,
-      section,
-      footer {
-        min-height: 68vh;
-        padding: 0 12px;
+        padding: 40px 16px 56px;
       }
 
       h1 {
-        font-size: 1.38rem;
+        font-size: 1.45rem;
       }
 
       .subtitle {
-        font-size: 0.72rem;
+        font-size: 0.74rem;
       }
 
       .photo {
-        width: 145px;
-        height: 145px;
+        max-width: 170px;
       }
 
       p,
@@ -288,40 +237,40 @@
 <body>
   <main class="wrap">
     <header>
-      <h1>Ryunosuke Aoki</h1>
-      <p class="subtitle">Sound / Field Recording / Research / Design</p>
+      <h1>青木隆之助｜AOKI Ryunosuke</h1>
+      <p class="subtitle">いろ・啼鳥｜聴的環境｜Sound Pieces</p>
     </header>
 
-    <img class="photo" src="profile.jpg" alt="Ryunosuke Aokiの写真" />
+    <img class="photo" src="profile.jpg" alt="青木隆之助｜AOKI Ryunosuke" />
 
     <section>
-      <h2>About</h2>
+      <h2>紹介｜Profile</h2>
       <p>
-        青木隆之助。フィールドレコーディング、サウンドスケープ研究、デザイン、制作を横断しながら活動しています。
-        音を通して、都市や風景、人の気配を記録し、考え、表現しています。
+        平成十五年十月九日、神奈川県川崎市川崎区生まれ。青山学院大学在学中。
+        身長162cm、視力0.1程度。
       </p>
     </section>
 
     <section>
-      <h2>Works</h2>
-      <ul>
-        <li><a href="#">Field Recordings</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Writing</a></li>
+      <h2>作品｜Works</h2>
+      <ul class="link-list">
+        <li><a class="button-link" href="https://aokiryunosuke.github.io/fieldrecordingnotes/">Field Recordings</a></li>
+        <li><a class="button-link" href="#">Projects</a></li>
+        <li><a class="button-link" href="#">Writing</a></li>
       </ul>
     </section>
 
     <section>
-      <h2>Links</h2>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">GitHub</a></li>
-        <li><a href="#">Contact</a></li>
+      <h2>SNSアカウント｜Accounts</h2>
+      <ul class="link-list">
+        <li><a class="button-link" href="https://www.instagram.com/aoki_ryunosuke/">Instagram</a></li>
+        <li><a class="button-link" href="#">GitHub</a></li>
+        <li><a class="button-link" href="#">Contact</a></li>
       </ul>
     </section>
 
     <footer>
-      <p>© Ryunosuke Aoki</p>
+      <p>© AOKI Ryunosuke</p>
     </footer>
   </main>
 </body>
