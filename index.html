@@ -10,7 +10,7 @@
       --text: #111111;
       --muted: #666666;
       --line: #dddddd;
-      --max: 720px;
+      --max: 620px;
     }
 
     * {
@@ -23,58 +23,58 @@
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
         "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-      line-height: 1.8;
+      line-height: 1.65;
     }
 
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 56px 24px 80px;
+      padding: 44px 20px 64px;
     }
 
     header {
-      margin-bottom: 48px;
+      margin-bottom: 36px;
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 500;
       letter-spacing: 0.02em;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
     }
 
     .subtitle {
       color: var(--muted);
-      font-size: 0.98rem;
+      font-size: 0.88rem;
       margin: 0;
     }
 
     .photo {
       width: 100%;
-      max-width: 280px;
+      max-width: 220px;
       aspect-ratio: 1 / 1;
       object-fit: cover;
       display: block;
-      margin: 0 0 32px;
+      margin: 0 0 24px;
       border: 1px solid var(--line);
     }
 
     section {
-      padding: 24px 0;
+      padding: 18px 0;
       border-top: 1px solid var(--line);
     }
 
     h2 {
-      font-size: 0.95rem;
+      font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin: 0 0 14px;
+      margin: 0 0 10px;
     }
 
     p {
       margin: 0;
-      font-size: 1rem;
+      font-size: 0.93rem;
     }
 
     ul {
@@ -83,8 +83,12 @@
       margin: 0;
     }
 
+    li {
+      font-size: 0.93rem;
+    }
+
     li + li {
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
     a {
@@ -98,22 +102,31 @@
     }
 
     footer {
-      padding-top: 32px;
+      padding-top: 24px;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.82rem;
     }
 
     @media (max-width: 640px) {
       .wrap {
-        padding: 32px 18px 56px;
+        padding: 28px 16px 48px;
       }
 
       h1 {
-        font-size: 1.7rem;
+        font-size: 1.35rem;
+      }
+
+      .subtitle {
+        font-size: 0.82rem;
       }
 
       .photo {
-        max-width: 180px;
+        max-width: 160px;
+      }
+
+      p,
+      li {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -125,10 +138,10 @@
       <p class="subtitle">いろ・啼鳥｜聴的環境｜Sound Pieces</p>
     </header>
 
-    <img class="photo" src="profile.jpg" alt="青木隆之助・・AOKI Ryunosuke" />
+    <img class="photo" src="profile.jpg" alt="青木隆之助｜AOKI Ryunosuke" />
 
     <section>
-      <h2>紹介・・Profile</h2>
+      <h2>紹介｜Profile</h2>
       <p>
         平成十五年十月九日、神奈川県川崎市川崎区生まれ。青山学院大学在学中。
         身長162cm、視力0.1程度。
