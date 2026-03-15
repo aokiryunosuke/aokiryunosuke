@@ -11,11 +11,13 @@
       --muted: #6e7579;
       --line: rgba(70, 95, 110, 0.18);
       --max: 580px;
-      --river-1: rgba(92, 145, 175, 0.15);
-      --river-2: rgba(135, 184, 210, 0.12);
-      --river-3: rgba(188, 220, 235, 0.16);
-      --river-4: rgba(120, 165, 190, 0.10);
-      --mist: rgba(255, 255, 255, 0.10);
+      --river-1: rgba(90, 205, 245, 0.24);
+      --river-2: rgba(235, 120, 190, 0.22);
+      --river-3: rgba(245, 210, 60, 0.23);
+      --river-4: rgba(120, 120, 128, 0.20);
+      --river-5: rgba(70, 170, 95, 0.22);
+      --river-6: rgba(150, 90, 220, 0.22);
+      --mist: rgba(255, 255, 255, 0.07);
     }
 
     * {
@@ -29,11 +31,10 @@
     body {
       margin: 0;
       background:
-        linear-gradient(180deg, rgba(248, 251, 252, 0.96), rgba(241, 248, 250, 0.96)),
-        linear-gradient(135deg, rgba(220, 237, 244, 0.55), rgba(247, 250, 251, 0.75));
+        linear-gradient(180deg, rgba(248, 251, 252, 0.94), rgba(241, 248, 250, 0.94)),
+        linear-gradient(135deg, rgba(225, 236, 242, 0.52), rgba(247, 250, 251, 0.72));
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-        "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      font-family: "YuMincho", "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", "Times New Roman", serif;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
@@ -49,7 +50,7 @@
       inset: -18% -18%;
       pointer-events: none;
       z-index: 0;
-      will-change: transform, background-position;
+      will-change: transform, background-position, filter;
     }
 
     body::before {
@@ -58,7 +59,8 @@
         radial-gradient(120% 24% at 82% 28%, transparent 60%, var(--river-2) 64%, transparent 69%),
         radial-gradient(135% 25% at 24% 48%, transparent 61%, var(--river-3) 65%, transparent 70%),
         radial-gradient(125% 23% at 78% 67%, transparent 61%, var(--river-4) 65%, transparent 70%),
-        radial-gradient(145% 24% at 18% 86%, transparent 60%, var(--river-2) 64%, transparent 69%);
+        radial-gradient(145% 24% at 18% 86%, transparent 60%, var(--river-5) 64%, transparent 69%),
+        radial-gradient(118% 22% at 72% 88%, transparent 61%, var(--river-6) 65%, transparent 70%);
       animation: riverFlowA 12s ease-in-out infinite alternate;
       opacity: 1;
     }
@@ -69,68 +71,68 @@
         radial-gradient(122% 22% at 16% 34%, transparent 61%, var(--river-2) 65%, transparent 70%),
         radial-gradient(130% 21% at 86% 52%, transparent 62%, var(--river-1) 66%, transparent 71%),
         radial-gradient(120% 20% at 28% 72%, transparent 62%, var(--river-3) 66%, transparent 71%),
-        radial-gradient(150% 22% at 70% 90%, transparent 61%, var(--mist) 65%, transparent 70%);
+        radial-gradient(136% 22% at 62% 44%, transparent 61%, var(--river-5) 65%, transparent 70%),
+        radial-gradient(150% 22% at 70% 90%, transparent 61%, var(--river-6) 65%, transparent 70%);
       animation: riverFlowB 9s ease-in-out infinite alternate;
       opacity: 0.95;
       mix-blend-mode: normal;
     }
 
     .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 42px 18px 60px;
-      position: relative;
-      z-index: 1;
-      background: transparent;
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 2.05;
+      text-shadow: 0 0 1px rgba(255,255,255,0.10);
     }
 
     header {
-      margin-bottom: 34px;
+      margin-bottom: 42px;
     }
 
     h1 {
-      font-size: 1.45rem;
+      font-size: 1.7rem;
       font-weight: 500;
-      letter-spacing: 0.03em;
-      margin: 0 0 6px;
+      letter-spacing: 0.1em;
+      line-height: 1.45;
+      margin: 0 0 10px;
     }
 
     .subtitle {
       color: var(--muted);
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
       margin: 0;
     }
 
     .photo {
       width: 100%;
-      max-width: 200px;
+      max-width: 190px;
       aspect-ratio: 1 / 1;
       object-fit: cover;
       display: block;
-      margin: 0 0 22px;
+      margin: 0 0 30px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
     }
 
     section {
-      padding: 16px 0;
+      padding: 20px 0 22px;
       border-top: 1px solid var(--line);
     }
 
     h2 {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin: 0 0 9px;
+      margin: 0 0 12px;
       color: var(--muted);
     }
 
     p {
       margin: 0;
       font-size: 0.9rem;
-      text-shadow: 0 0 1px rgba(255,255,255,0.18);
+      text-shadow: 0 0 1px rgba(255,255,255,0.10);
     }
 
     ul {
@@ -142,7 +144,7 @@
     .link-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
     }
 
     .link-list li {
@@ -151,16 +153,15 @@
 
     .button-link {
       display: inline-block;
-      padding: 8px 14px;
+      padding: 9px 15px;
       border: 1px solid rgba(17, 17, 17, 0.72);
       color: var(--text);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       line-height: 1.3;
+      letter-spacing: 0.08em;
       transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
-      background: rgba(255, 255, 255, 0.10);
-      backdrop-filter: blur(1px);
-      -webkit-backdrop-filter: blur(1px);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .button-link:hover {
@@ -170,15 +171,16 @@
     }
 
     footer {
-      padding-top: 22px;
+      padding-top: 28px;
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
     }
 
     @keyframes riverFlowA {
       0% {
         transform: translate3d(-4%, -1%, 0) scale(1.02) rotate(-1.2deg);
-        filter: blur(0px);
+        filter: blur(0.3px);
       }
       25% {
         transform: translate3d(2%, 2%, 0) scale(1.06) rotate(0.4deg);
@@ -192,7 +194,7 @@
       }
       100% {
         transform: translate3d(-5%, -1%, 0) scale(1.03) rotate(-1.4deg);
-        filter: blur(0px);
+        filter: blur(0.3px);
       }
     }
 
@@ -216,11 +218,29 @@
 
     @media (max-width: 640px) {
       .wrap {
-        padding: 28px 14px 44px;
+        padding: 34px 16px 50px;
       }
 
       h1 {
-        font-size: 1.25rem;
+        font-size: 1.38rem;
+      }
+
+      .subtitle {
+        font-size: 0.72rem;
+      }
+
+      .photo {
+        max-width: 145px;
+      }
+
+      p,
+      .button-link {
+        font-size: 0.86rem;
+      }
+    }
+
+      h1 {
+        font-size: 1.28rem;
       }
 
       .subtitle {
@@ -233,7 +253,7 @@
 
       p,
       .button-link {
-        font-size: 0.84rem;
+        font-size: 0.86rem;
       }
     }
 
